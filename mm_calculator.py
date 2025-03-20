@@ -29,9 +29,7 @@ st.markdown(
 def generate_ai_analysis(context, data):
     prompt = f"{context}\n\nData:\n{data}\n\nGiv en kort analyse og forslag til forbedringer."
 
-    client = openai.OpenAI()  # Opret en klient for OpenAI API
-
-    response = client.chat.completions.create(
+    response = openai.ChatCompletion.create(
         model="gpt-4",
         messages=[
             {"role": "system", "content": "Du er en AI-marketingekspert."},
@@ -39,7 +37,7 @@ def generate_ai_analysis(context, data):
         ]
     )
 
-    return response.choices[0].message.content
+    return response["choices"][0]["message"]["content"]
 
 def calculate_metrics(budget, cpc, cvr, aov, is_seo=False, seo_volume=0, seo_ctr=0):
     if is_seo:
