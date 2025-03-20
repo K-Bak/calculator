@@ -182,7 +182,6 @@ elif st.session_state.page == "mix":
         elif channel == "E-mail":
             email_recipients = st.sidebar.number_input(f"Antal modtagere for {channel}", min_value=0, value=5000, step=100)
             email_open_rate = st.sidebar.number_input(f"Åbningsrate for {channel} (%)", min_value=0.1, max_value=100.0, value=20.0, step=0.1)
-            ctr = st.sidebar.number_input(f"CTR for {channel} (%)", min_value=0.1, max_value=100.0, value=5.0, step=0.1)
             cpc, seo_volume, seo_ctr = 0, 0, 0  # Placeholder for ikke-CPC kanaler
 
         else:
